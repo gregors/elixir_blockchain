@@ -9,7 +9,13 @@ defmodule ElixirBlockchain.Bitcoin do
   end
 
   def genesis_block do
-    get_block(0)
+    %ElixirBlockchain.Bitcoin{ }
+    |> Map.put(:version, 1)
+    |> Map.put(:previous_block, "0000000000000000000000000000000000000000000000000000000000000000")
+    |> Map.put(:merkel_root, "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b")
+    |> Map.put(:nonce, 2083236893)
+    |> Map.put(:timestamp, 1231006505)
+    |> Map.put(:bits, 486604799)
   end
 
   def blockchain_api(num) do
