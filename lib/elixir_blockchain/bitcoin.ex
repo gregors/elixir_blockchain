@@ -38,7 +38,6 @@ defmodule ElixirBlockchain.Bitcoin do
 
   def swap(s) do
     s
-    |> String.pad_leading(8, "0")
     |> String.to_charlist
     |> Enum.chunk_every(2)
     |> Enum.reverse
@@ -46,7 +45,7 @@ defmodule ElixirBlockchain.Bitcoin do
   end
 
   def to_hex(n) do
-    Integer.to_string(n, 16)
+    Integer.to_string(n, 16) |> String.pad_leading(8, "0")
   end
 
   def pad_zero(s) do
