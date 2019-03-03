@@ -27,7 +27,7 @@ defmodule ElixirBlockchain.Bitcoin do
   end
 
   def format_block(data) do
-    %ElixirBlockchain.Block{ }
+    %ElixirBlockchain.Bitcoin{ }
     |> Map.put(:version, data["ver"])
     |> Map.put(:previous_block, data["prev_block"])
     |> Map.put(:merkel_root, data["mrkl_root"])
