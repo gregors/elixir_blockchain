@@ -9,25 +9,26 @@ defmodule ElixirBlockchain.Bitcoin do
   end
 
   def genesis_block do
-    %ElixirBlockchain.Bitcoin{ }
+    %ElixirBlockchain.Bitcoin{}
     |> Map.put(:version, 1)
     |> Map.put(:previous_block, "0000000000000000000000000000000000000000000000000000000000000000")
     |> Map.put(:merkel_root, "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b")
-    |> Map.put(:nonce, 2083236893)
-    |> Map.put(:timestamp, 1231006505)
-    |> Map.put(:bits, 486604799)
+    |> Map.put(:nonce, 2_083_236_893)
+    |> Map.put(:timestamp, 1_231_006_505)
+    |> Map.put(:bits, 486_604_799)
   end
 
   def blockchain_api(num) do
     url = "https://blockchain.info/block-height/#{num}?format=json"
     response = HTTPoison.get!(url)
     req = Poison.decode!(response.body)
+
     req["blocks"]
     |> List.first
   end
 
   def format_block(data) do
-    %ElixirBlockchain.Bitcoin{ }
+    %ElixirBlockchain.Bitcoin{}
     |> Map.put(:version, data["ver"])
     |> Map.put(:previous_block, data["prev_block"])
     |> Map.put(:merkel_root, data["mrkl_root"])

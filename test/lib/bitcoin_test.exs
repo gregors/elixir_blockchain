@@ -17,9 +17,9 @@ defmodule ElixirBlockchainBlockTest do
     assert block.version == 1
     assert block.previous_block == "0000000000000000000000000000000000000000000000000000000000000000"
     assert block.merkel_root == "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"
-    assert block.timestamp == 1231006505
-    assert block.nonce == 2083236893
-    assert block.bits == 486604799
+    assert block.timestamp == 1_231_006_505
+    assert block.nonce == 2_083_236_893
+    assert block.bits == 486_604_799
   end
 
   test "get_hash" do
